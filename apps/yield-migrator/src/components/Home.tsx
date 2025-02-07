@@ -18,10 +18,10 @@ import {
 import { isAddress } from "viem";
 import { useAccount, useChainId } from "wagmi";
 import { TokenData } from "@ensofinance/sdk";
-import { useEnsoBalances, useEnsoTokenDetails } from "@/service/enso.tsx";
+import { useEnsoBalances, useEnsoTokenDetails } from "@/service/enso";
 import { formatNumber, formatUSD, normalizeValue } from "@/service";
-import ConfirmDialog from "@/components/ConfirmDialog.tsx";
-import { Position } from "@/types.ts";
+import ConfirmDialog from "@/components/ConfirmDialog";
+import { Position } from "@/types";
 
 const SourcePoolItem = ({
   position,
@@ -197,8 +197,8 @@ const Home = () => {
 
   const filteredUnderlyingTokens = underlyingTokensData?.filter(
     (token) =>
-      token.underlyingTokens.length === underlyingTokens.length &&
-      token.underlyingTokens.every((underlyingToken) =>
+      token.underlyingTokens?.length === underlyingTokens?.length &&
+      token.underlyingTokens?.every((underlyingToken) =>
         underlyingTokens.includes(underlyingToken.address),
       ) &&
       token.name !== selectedSource?.token.name &&
@@ -238,7 +238,7 @@ const Home = () => {
                 <Card.Body gap={4}>
                   {positionLoading ? (
                     <RenderSkeletons />
-                  ) : positions.length === 0 ? (
+                  ) : positions?.length === 0 ? (
                     <Box
                       display="flex"
                       h="40"

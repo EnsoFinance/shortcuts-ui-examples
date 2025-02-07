@@ -8,8 +8,8 @@ import {
   DialogHeader,
   DialogRoot,
   DialogTitle,
-} from "@/components/ui/dialog.tsx";
-import { Position } from "@/types.ts";
+} from "@/components/ui/dialog";
+import { Position } from "@/types";
 
 const ConfirmDialog = ({
   open,
